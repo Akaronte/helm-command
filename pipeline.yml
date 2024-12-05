@@ -33,6 +33,5 @@ stages:
 
           - script: |
               helm repo add my-repo oci://akzure.azurecr.io/helm
-              helm repo update
               helm repo list
             displayName: 'Helm repo list'
