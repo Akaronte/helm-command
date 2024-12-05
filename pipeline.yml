@@ -14,3 +14,13 @@ stages:
           - task: HelmInstaller@1
             inputs:
               helmVersionToInstall: 'latest'
+
+          - script: |
+              ls -la
+            displayName: 'ls -la'
+
+          - script: |
+              helm init --client-only
+              helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+              helm repo update
+            displayName: 'Install Helm'
