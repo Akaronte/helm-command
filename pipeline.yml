@@ -32,6 +32,6 @@ stages:
             displayName: 'ls -la'
 
           - script: |
-              helm repo add my-repo oci://akzure.azurecr.io/helm
+              helm repo add my-repo https://akzure.azurecr.io/helm/v1/repo
               helm repo list
             displayName: 'Helm repo list'
