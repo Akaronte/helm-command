@@ -17,13 +17,11 @@ stages:
               repository: 'akzure.azurecr.io/helm'
               command: 'login'
 
-          - task: AzureCLI@2
+          - task: Bash@3
+            displayName: Azure login
             inputs:
-              azureSubscription: 'Pay-As-You-Go'
-              scriptType: 'bash'
-              scriptLocation: 'inlineScript'
-              inlineScript: |
-                az acr login --name akzure
+              targetType: "inline"
+              script: az login
 
 
           - script: |
