@@ -32,7 +32,7 @@ stages:
             displayName: 'ls -la'
 
           - script: |
-              helm pull oci://akzure.azurecr.io/helm/helm-command --version .1.0
+              helm pull oci://akzure.azurecr.io/helm/helm-command --version 0.1.0
 
           - script: |
               helm repo add my-repo https://akzure.azurecr.io/helm/v1/repo
