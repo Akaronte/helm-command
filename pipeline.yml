@@ -19,7 +19,7 @@ stages:
 
           - task: AzureCLI@2
             inputs:
-              azureSubscription: 'eb516520-7a5f-4868-b276-087b4424d83a'
+              azureSubscription: 'Pay-As-You-Go'
               scriptType: 'bash'
               scriptLocation: 'inlineScript'
               inlineScript: |
