@@ -10,3 +10,7 @@ stages:
         steps:
           - script: echo Hello, Kubernetes!
             displayName: 'Run a one-line script'
+
+          - task: HelmInstaller@1
+            inputs:
+              helmVersionToInstall: 'latest'
