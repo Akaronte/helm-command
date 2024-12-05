@@ -17,6 +17,15 @@ stages:
               repository: 'akzure.azurecr.io/helm'
               command: 'login'
 
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: 'serviceConnectionAkzureRegistry'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                az acr login --name akzure
+
+
           - script: |
               docker info
             displayName: 'Verify Docker Login'
@@ -28,11 +37,15 @@ stages:
               helmVersionToInstall: 'latest'
 
           - script: |
-              ls -la
-            displayName: 'ls -la'
+              export HELM_EXPERIMENTAL_OCI=1
+            displayName: 'set HELM_EXPERIMENTAL_OCI=1'
 
           - script: |
               helm pull oci://akzure.azurecr.io/helm/helm-command --version 0.1.0
+
+          - script: |
+              ls -la
+            displayName: 'ls -la'
 
           - script: |
               helm repo add my-repo https://akzure.azurecr.io/helm/v1/repo
