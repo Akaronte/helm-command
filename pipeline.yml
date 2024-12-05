@@ -14,7 +14,7 @@ stages:
           - task: Docker@2
             inputs:
               containerRegistry: 'serviceConnectionAkzureRegistry'
-              repository: 'akzure.azurecr.io'
+              repository: 'akzure.azurecr.io/helm'
               command: 'login'
 
 
@@ -30,4 +30,4 @@ stages:
               helm repo add my-repo oci://mi-registro.azurecr.io/helm
               helm repo update
               helm repo list
-            displayName: 'Install Helm'
+            displayName: 'Helm repo list'
