@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.kube2.okd.piensoluegoinstalo.com:6443
+  name: api-kube2-okd-piensoluegoinstalo-com:6443
+contexts:
+- context:
+    cluster: api-kube2-okd-piensoluegoinstalo-com:6443
+    namespace: myappjava
+    user: admin/api-kube2-okd-piensoluegoinstalo-com:6443
+  name: myappjava/api-kube2-okd-piensoluegoinstalo-com:6443/admin
+current-context: myappjava/api-kube2-okd-piensoluegoinstalo-com:6443/admin
+kind: Config
+preferences: {}
+users:
+- name: admin/api-kube2-okd-piensoluegoinstalo-com:6443
+  user:
+    token: sha256~r9NThBs3AAG-4k_N8ofmPiO_Sey4RyHt-fgZ2QPGysY
