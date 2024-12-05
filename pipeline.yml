@@ -1,0 +1,12 @@
+trigger:
+  - main
+
+stages:
+  - stage: Build
+    jobs:
+      - job: BuildJob
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - script: echo Hello, Kubernetes!
+            displayName: 'Run a one-line script'
