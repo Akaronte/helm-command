@@ -19,7 +19,7 @@ stages:
 
           - task: AzureCLI@2
             inputs:
-              azureSubscription: 'serviceConnectionAkzureRegistry'
+              azureSubscription: 'eb516520-7a5f-4868-b276-087b4424d83a'
               scriptType: 'bash'
               scriptLocation: 'inlineScript'
               inlineScript: |
