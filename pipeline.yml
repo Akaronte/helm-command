@@ -10,6 +10,13 @@ stages:
         steps:
           - script: echo Hello, Kubernetes!
             displayName: 'Run a one-line script'
+          
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'serviceConnectionAkzureRegistry'
+              repository: 'akzure.azurecr.io'
+              command: 'login'
+
 
           - task: HelmInstaller@1
             inputs:
