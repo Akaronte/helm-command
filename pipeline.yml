@@ -17,6 +17,11 @@ stages:
               repository: 'akzure.azurecr.io/helm'
               command: 'login'
 
+          - script: |
+              docker info
+            displayName: 'Verify Docker Login'
+            continueOnError: false
+
 
           - task: HelmInstaller@1
             inputs:
