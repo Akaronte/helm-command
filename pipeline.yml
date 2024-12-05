@@ -20,7 +20,7 @@ stages:
             displayName: 'ls -la'
 
           - script: |
-              helm init --client-only
-              helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+              helm repo add my-repo oci://mi-registro.azurecr.io/helm
               helm repo update
+              helm repo list
             displayName: 'Install Helm'
