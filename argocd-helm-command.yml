@@ -1,0 +1,196 @@
+metadata:
+  creationTimestamp: "2024-12-05T21:03:25Z"
+  generation: 40
+  managedFields:
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:destination:
+          .: {}
+          f:namespace: {}
+          f:server: {}
+        f:project: {}
+        f:source:
+          .: {}
+          f:helm:
+            .: {}
+            f:valueFiles: {}
+          f:path: {}
+          f:repoURL: {}
+          f:targetRevision: {}
+      f:status:
+        .: {}
+        f:health: {}
+        f:summary: {}
+        f:sync:
+          .: {}
+          f:comparedTo:
+            .: {}
+            f:destination: {}
+            f:source: {}
+    manager: argocd-server
+    operation: Update
+    time: "2024-12-05T21:24:24Z"
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions: {}
+        f:controllerNamespace: {}
+        f:health:
+          f:status: {}
+        f:history: {}
+        f:operationState:
+          .: {}
+          f:finishedAt: {}
+          f:message: {}
+          f:operation:
+            .: {}
+            f:initiatedBy:
+              .: {}
+              f:username: {}
+            f:retry: {}
+            f:sync:
+              .: {}
+              f:revision: {}
+              f:syncStrategy:
+                .: {}
+                f:hook: {}
+          f:phase: {}
+          f:startedAt: {}
+          f:syncResult:
+            .: {}
+            f:resources: {}
+            f:revision: {}
+            f:source:
+              .: {}
+              f:helm:
+                .: {}
+                f:valueFiles: {}
+              f:path: {}
+              f:repoURL: {}
+              f:targetRevision: {}
+        f:reconciledAt: {}
+        f:resources: {}
+        f:summary:
+          f:images: {}
+        f:sync:
+          f:comparedTo:
+            f:destination:
+              f:namespace: {}
+              f:server: {}
+            f:source:
+              f:helm:
+                .: {}
+                f:valueFiles: {}
+              f:path: {}
+              f:repoURL: {}
+              f:targetRevision: {}
+          f:status: {}
+    manager: argocd-application-controller
+    operation: Update
+    time: "2024-12-05T22:31:37Z"
+  name: helm-command
+  namespace: argocd
+  resourceVersion: "6345949"
+  uid: 707e6d1b-5157-46b7-9274-e4f7a6dd641c
+spec:
+  destination:
+    namespace: mytestcommand
+    server: https://api.kube2.okd.piensoluegoinstalo.com:6443
+  project: akzure
+  source:
+    helm:
+      valueFiles:
+      - values.yaml
+    path: helm-command
+    repoURL: git@ssh.dev.azure.com:v3/akzureops/akzuredevops/helm-command
+    targetRevision: HEAD
+status:
+  conditions:
+  - lastTransitionTime: "2024-12-05T21:55:37Z"
+    message: 'Failed to load target state: failed to generate manifest for source
+      1 of 1: rpc error: code = Unknown desc = Manifest generation error (cached):
+      `helm template . --name-template helm-command --namespace mytestcommand --kube-version
+      1.27 --values <path to cached source>/helm-command/values.yaml <api versions
+      removed> --include-crds` failed exit status 1: Error: open <path to cached source>/helm-command/values.yaml:
+      no such file or directory'
+    type: ComparisonError
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2024-12-05T21:03:39Z"
+    deployedAt: "2024-12-05T21:03:39Z"
+    id: 0
+    initiatedBy:
+      username: admin
+    revision: 4d9efd3dd4b86cb7db53349d25024e1be94048d8
+    source:
+      helm:
+        valueFiles:
+        - values.yaml
+      path: helm-command
+      repoURL: git@ssh.dev.azure.com:v3/akzureops/akzuredevops/helm-command
+      targetRevision: HEAD
+  operationState:
+    finishedAt: "2024-12-05T21:03:39Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 4d9efd3dd4b86cb7db53349d25024e1be94048d8
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: "2024-12-05T21:03:39Z"
+    syncResult:
+      resources:
+      - group: batch
+        hookPhase: Running
+        kind: Job
+        message: job.batch/helm-command-helm-command-job created
+        name: helm-command-helm-command-job
+        namespace: mytestcommand
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 4d9efd3dd4b86cb7db53349d25024e1be94048d8
+      source:
+        helm:
+          valueFiles:
+          - values.yaml
+        path: helm-command
+        repoURL: git@ssh.dev.azure.com:v3/akzureops/akzuredevops/helm-command
+        targetRevision: HEAD
+  reconciledAt: "2024-12-05T22:31:37Z"
+  resources:
+  - group: batch
+    health:
+      status: Healthy
+    kind: Job
+    name: helm-command-helm-command-job
+    namespace: mytestcommand
+    requiresPruning: true
+    status: Unknown
+    version: v1
+  summary:
+    images:
+    - registry.piensoluegoinstalo.com:5000/red9:latest
+  sync:
+    comparedTo:
+      destination:
+        namespace: mytestcommand
+        server: https://api.kube2.okd.piensoluegoinstalo.com:6443
+      source:
+        helm:
+          valueFiles:
+          - values.yaml
+        path: helm-command
+        repoURL: git@ssh.dev.azure.com:v3/akzureops/akzuredevops/helm-command
+        targetRevision: HEAD
+    status: Unknown

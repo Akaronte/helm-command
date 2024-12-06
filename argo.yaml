@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-app
-  namespace: argocd
+  name: helm-command
+  namespace: mytestcommand
 spec:
-  project: default
+  project: 'akzure'
   source:
-    repoURL: 'https://example.com/helm-charts'    # URL del repo del chart
-    targetRevision: '1.0.0'                       # Versión del chart
-    chart: 'my-chart'                             # Nombre del chart
+    repoURL: 'oci://akzure.azurecr.io/helm/helm-command'    # URL del repo del chart
+    targetRevision: '0.1.0'                       # Versión del chart
+    chart: 'helm-command'                             # Nombre del chart
     helm:
       valueFiles:                                 # Archivos de valores adicionales
-        - https://example.com/values-repo/values.yaml  # URL del archivo values.yaml
+        - https://akzureops@dev.azure.com/akzureops/akzuredevops/_git/helm-command/values.yaml  # URL del archivo values.yaml
   destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: 'default'
+    server: 'https://api.kube2.okd.piensoluegoinstalo.com:6443'
+    namespace: 'mytestcommand'
   syncPolicy:
     automated:
       prune: true
